@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="jp">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Jazz</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="stylesheet" href="stylesheets/style.css">
+
+  </head>
+  <header class="header">
+    <!-- ヘッダーロゴ -->
+    <div class="logo">JAZZ研究会 K＆K</div>
+  
+    <!-- ハンバーガーメニュー部分 -->
+    <div class="nav">
+  
+      <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
+      <input id="drawer_input" class="drawer_hidden" type="checkbox">
+  
+      <!-- ハンバーガーアイコン -->
+      <label for="drawer_input" class="drawer_open"><span></span></label>
+  
+      <!-- メニュー -->
+      <nav class="nav_content">
+        <ul class="nav_list" id="page-link">
+          <li class="nav_item"><a href="#area-1">HOME</a></li>
+          <li class="nav_item"><a href="#area-2">time table<br>演奏スケジュール</a></li>
+          <li class="nav_item"><a href="#area-3">information<br>各種情報</a></li>
+          <li class="nav_item"><a href="https://docs.google.com/forms/d/e/1FAIpQLScbGIsT6NGNuj8nE0JpMMoEmfMquq1OcwsPmUZJrwnPVdx04g/viewform?usp=sf_link">予約フォーム</a></li>
+        </ul>
+      </nav>
+  
+    
+  </div>
+</header>
+
+<nav class="hero" id="area-1">
+<div class="hero__image">
+  <img src="images/Kültür Tava on Twitter.jpg" alt="" >
+</div>
+<div class="hero__text">
+  <h1>23rd 12/23 Open:19:00～<hr>JAZZ CONCERT</h1>
+  <p>北九州市市立大学 JAZZ研究会</p>
+</div>
+<div class="hero__btn">
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScbGIsT6NGNuj8nE0JpMMoEmfMquq1OcwsPmUZJrwnPVdx04g/viewform?usp=sf_link" class="btn bgleft"><span>ご予約はこちらから　＞</span></a>
+</div>
+
+<div class="hero__footer">
+  <div class="scrolldown4"><span></span></div>
+</div>
+
+</nav>
+
+<section id="area-2">
+<nav class="time content">
+<div class="time__text">
+  <h1>time table</h1><p>演奏スケジュール</p>
+</div>
+<div class="time__image">
+  <img src="images/aiueo.png" alt="" >
+</div>
+<div class="time__button">
+  
+</div>
+</nav>
+</section>
+
+<footer id="area-3">
+<div class="time__text">
+  <h1>information</h1><p>各種情報</p>
+</div>
+<div class="information">
+  <p class="small-margin-top">＜OPEN＞<br>19:00～</p>
+  <p class="small-margin-top">＜CONTACT＞<br>p@p<br>tel::××××</p>
+  <p class="small-margin-top">＜PLACE＞<br>男女共同参画センタームーブ</p>
+  <div id='map'></div>
+  <p>Copyright 2022 by 北九州市立大学JAZZ研究会K&K</p>
+</div>
+</footer>
+
+
+
+<script>
+let map
+
+function initMap(){
+geocoder = new google.maps.Geocoder()
+
+map = new google.maps.Map(document.getElementById('map'), {
+  center: {lat: 33.878936426650725, lng:130.87024054211878},
+  zoom: 16,
+});
+
+marker = new google.maps.Marker({
+  position:  {lat: 33.878936426650725, lng:130.87024054211878},
+  map: map
+});
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkJOhiPne4FSlqbB8F32IoX3ZJuY_BnyY&callback=initMap" async defer></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!--自作のJS-->
+<script>
+$('#page-link a[href*="#"]').click(function () {//全てのページ内リンクに適用させたい場合はa[href*="#"]のみでもOK
+  var elmHash = $(this).attr('href'); //ページ内リンクのHTMLタグhrefから、リンクされているエリアidの値を取得
+  var pos = $(elmHash).offset().top;	//idの上部の距離を取得
+  $('body,html').animate({scrollTop: pos}, 500); //取得した位置にスクロール。500の数値が大きくなるほどゆっくりスクロール
+  return false;
+});</script>
+</body>
+  <body>
+    
+
+  </body>
+</html>
+
+
